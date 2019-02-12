@@ -1,0 +1,16 @@
+<h1><%= @task.title %></h1>
+
+<div class="task-info">
+  <% if @task.completed == true %>
+    <input type="checkbox" checked onclick="return false;">
+  <% else %>
+    <input type="checkbox" onclick="return false;">
+  <% end %>
+
+  <%= @task.details %>
+
+</div>
+
+<%= link_to "Edit task", edit_path(@task), class: "btn btn-primary" %>
+
+<%= link_to "Back to list", root_path, class: "btn btn-primary" %>

@@ -1,0 +1,21 @@
+<h1>Task Manager</h1>
+<% @tasks.each do |task| %>
+
+  <div class="task">
+    <% if task.completed == true %>
+      <input type="checkbox" checked onclick="return false;">
+    <% else %>
+      <input type="checkbox" onclick="return false;">
+    <% end %>
+
+    <%= link_to task.title, task_path(task) %>
+
+    <%= link_to (delete_path(task)), method: :delete, data: { confirm: 'Are you sure?'} do %>
+      <i class="fas fa-trash-alt"></i>
+    <% end %>
+  </div>
+
+<% end %>
+
+<%= link_to "Create a task", new_path, class: "btn btn-success" %>
+
